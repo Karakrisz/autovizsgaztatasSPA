@@ -39,7 +39,7 @@ const isMenuOpen = ref(false)
           class="header__head-item__img"
           height="100%"
         />
-        szerviz@muszakivizsgaztatas.hu
+        szerviz@auto-vizsgaztatas.hu
       </a>
       <a class="header__head-item header__head-item--hours text-color-w d-flex">
         <NuxtImg

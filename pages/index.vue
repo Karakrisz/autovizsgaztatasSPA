@@ -18,7 +18,9 @@
           mi leveszünk minden terhet a válladról. Te hozd az autót, mi hozzuk a
           megoldást!
         </p>
-        <NuxtLink to="/" class="hero-content__tBox__link d-flex page-link text-color-w"
+        <NuxtLink
+          to="/"
+          class="hero-content__tBox__link d-flex page-link text-color-w"
           >Ajánlatkérés</NuxtLink
         >
       </div>
@@ -26,7 +28,9 @@
   </section>
   <section>
     <div class="services-content">
-      <h2 class="services-content__h2 text-transform-uppercase text-color-w f-700">
+      <h2
+        class="services-content__h2 text-transform-uppercase text-color-w f-700"
+      >
         Szolgáltatásaink
       </h2>
       <div class="services-content__iTbox d-flex">
@@ -69,7 +73,7 @@
       </div>
       <div class="services-content__iTbox d-flex">
         <NuxtImg
-          src="/img/body/services/biztositas.svg"
+          src="/img/body/services/elozetes.svg"
           alt="Műszaki vizsgáztatás"
           class="services-content__iTbox__img bg-color-w"
           height="100%"
@@ -123,7 +127,7 @@
       </div>
       <div class="services-content__iTbox d-flex">
         <NuxtImg
-          src="/img/body/services/biztositas.svg"
+          src="/img/body/services/elozetes.svg"
           alt="Műszaki vizsgáztatás"
           class="services-content__iTbox__img bg-color-w"
           height="100%"
@@ -210,8 +214,10 @@
   <section>
     <div class="time-content d-flex">
       <div class="time-content__box">
-        <h6 class="time-content__h6 text-color-w text-transform-uppercase f-700">
-          Hozd az autód, mi a megoldást hozzuk!
+        <h6
+          class="time-content__h6 text-color-w text-transform-uppercase f-700"
+        >
+          Zöld utat adunk autóJÁnak!
         </h6>
         <NuxtLink
           to="/"

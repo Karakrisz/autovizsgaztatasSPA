@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Műszaki vizsgáztatás',
+      title: 'Autó vizsgáztatás',
       htmlAttrs: {
         lang: 'hu',
       },
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
           hid: 'description',
           name: 'description',
           content:
-            'Ne maradjon le a gyors és kényelmes műszaki vizsgáztatásról Budapesten! Több száz elégedett ügyféllel és profi csapatunkkal garantáljuk a zökkenőmentes ügyintézést. Foglaljon időpontot még ma!',
+            'Ne maradjon le a gyors és kényelmes autó vizsgáztatásról Budapesten! Több száz elégedett ügyféllel és profi csapatunkkal garantáljuk a zökkenőmentes ügyintézést. Foglaljon időpontot még ma!',
         },
         { name: 'format-detection', content: 'telephone=no' },
         { hid: 'robots', name: 'robots', content: 'index, follow' },
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: 'https://www.muszakivizsgaztatas.hu',
+    url: 'https://www.auto-vizsgaztatas.hu',
     trailingSlash: true,
   },
 
