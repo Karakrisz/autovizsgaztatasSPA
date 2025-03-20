@@ -57,7 +57,7 @@ const sendEmail = async () => {
           megoldást!
         </p>
         <NuxtLink
-          to="/"
+          to="/ajanlatkeres"
           class="hero-content__tBox__link d-flex page-link text-color-w"
           >Ajánlatkérés</NuxtLink
         >
@@ -165,7 +165,7 @@ const sendEmail = async () => {
       </div>
       <div class="services-content__linkBox">
         <NuxtLink
-          to="/"
+          to="/szolgaltatasok"
           class="services-content__linkBox__link page-next-link bg-color-w text-color d-flex"
           >Összes szolgáltatás megtekintése
           <NuxtImg
@@ -211,7 +211,7 @@ const sendEmail = async () => {
         </p>
         <div class="about-content__tBox__linkBox">
           <NuxtLink
-            to="/"
+            to="/rolunk"
             class="about-content__tBox__link d-flex page-link text-color-w"
             >Tudjon meg többet rólunk</NuxtLink
           >
@@ -257,7 +257,7 @@ const sendEmail = async () => {
           Zöld utat adunk autóJÁnak!
         </h6>
         <NuxtLink
-          to="/"
+          to="/ajanlatkeres"
           class="time-content__link page-next-link bg-color-w text-color"
           >Időpontot kérek</NuxtLink
         >

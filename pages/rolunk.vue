@@ -42,9 +42,9 @@ useHead({
         </p>
         <div class="about-content__tBox__linkBox">
           <NuxtLink
-            to="/"
+            to="/ajanlatkeres"
             class="about-content__tBox__link d-flex page-link text-color-w"
-            >Tudjon meg többet rólunk</NuxtLink
+            >Kapcsolatfelvétel</NuxtLink
           >
         </div>
       </div>

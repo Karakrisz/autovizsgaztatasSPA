@@ -52,7 +52,7 @@ useHead({
       </div>
       <div class="services-content__iTbox d-flex">
         <NuxtImg
-          src="/img/body/services/biztositas.svg"
+          src="/img/body/services/elozetes.svg"
           alt="Műszaki vizsgáztatás"
           class="services-content__iTbox__img bg-color-w"
           height="100%"
@@ -104,29 +104,11 @@ useHead({
           </p>
         </div>
       </div>
-      <div class="services-content__iTbox d-flex">
-        <NuxtImg
-          src="/img/body/services/biztositas.svg"
-          alt="Műszaki vizsgáztatás"
-          class="services-content__iTbox__img bg-color-w"
-          height="100%"
-        />
-
-        <div class="services-content__iTbox__iBox">
-          <h3 class="services-content__iTbox__iBox__h3 text-color-w f-600">
-            Biztosításkötés
-          </h3>
-          <p class="services-content__iTbox__iBox__p text-color-w m-0">
-            Segítünk a biztosításkötésben is, hogy mindent egy helyen
-            elintézhess, és időt spórolhass.
-          </p>
-        </div>
-      </div>
       <div class="services-content__linkBox">
         <NuxtLink
-          to="/"
+          to="/ajanlatkeres"
           class="services-content__linkBox__link page-next-link bg-color-w text-color d-flex"
-          >Összes szolgáltatás megtekintése
+          >Ajánlatkérés
           <NuxtImg
             src="/img/body/services/right.svg"
             alt="Műszaki vizsgáztatás"
