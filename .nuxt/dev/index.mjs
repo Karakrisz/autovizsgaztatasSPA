@@ -187,7 +187,7 @@ const _puEk3pcEcv = (function(nitro) {
 
 const rootDir = "/Applications/XAMPP/xamppfiles/htdocs/autovizsgaztatasSPA";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Ne maradjon le a gyors és kényelmes autó vizsgáztatásról Budapesten! Több száz elégedett ügyféllel és profi csapatunkkal garantáljuk a zökkenőmentes ügyintézést. Foglaljon időpontot még ma!"},{"name":"format-detection","content":"telephone=no"},{"hid":"robots","name":"robots","content":"index, follow"},{"http-equiv":"Content-Security-Policy","content":"\n            default-src 'self' https: data:;\n            img-src 'self' https: http: data:;\n            font-src 'self' https: data:;\n            style-src 'self' https: 'unsafe-inline';\n            script-src 'self' https: 'unsafe-inline' 'unsafe-eval';\n          "}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"canonical","href":"https://www.alkuszom.info"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Autó vizsgáztatás","htmlAttrs":{"lang":"hu"}};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Ne maradjon le a gyors és kényelmes autó vizsgáztatásról Budapesten! Több száz elégedett ügyféllel és profi csapatunkkal garantáljuk a zökkenőmentes ügyintézést. Foglaljon időpontot még ma!"},{"name":"format-detection","content":"telephone=no"},{"hid":"robots","name":"robots","content":"index, follow"},{"http-equiv":"Content-Security-Policy","content":"\n            default-src 'self' https: data:;\n            img-src 'self' https: http: data:;\n            font-src 'self' https: data:;\n            style-src 'self' https: 'unsafe-inline';\n            script-src 'self' https: 'unsafe-inline' 'unsafe-eval';\n          "}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"canonical","href":"https://www.alkuszom.info"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Autó vizsgáztatás - Autó vizsgáztatás Budapesten","htmlAttrs":{"lang":"hu"}};
 
 const appRootTag = "div";
 
@@ -350,7 +350,9 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {},
+  "public": {
+    "apiBaseUrl": "https://api.muszakivizsgaztatas.hu"
+  },
   "sitemap": {
     "isI18nMapped": false,
     "sitemapName": "sitemap.xml",
@@ -1001,6 +1003,8 @@ function publicAssetsURL(...path) {
   const publicBase = app.cdnURL || app.baseURL;
   return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
 }
+
+const defineSitemapEventHandler = defineEventHandler;
 
 function normalizeSiteConfig(config) {
   if (typeof config.indexable !== "undefined")
@@ -2259,9 +2263,11 @@ const _mAZbUl = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_pAHcej = () => Promise.resolve().then(function () { return sitemap$1; });
 const _lazy_sv3RBP = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/sitemap', handler: _lazy_pAHcej, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_sv3RBP, lazy: true, middleware: false, method: undefined },
   { route: '', handler: _PYJP0S, lazy: false, middleware: true, method: undefined },
   { route: '/__site-config__/debug.json', handler: _AuGBH7, lazy: false, middleware: false, method: undefined },
@@ -2495,40 +2501,19 @@ const sources$1 = [
                 "loc": "/ajanlatkeres"
             },
             {
-                "loc": "/dokumentumok"
-            },
-            {
-                "loc": "/gepjarmu-biztositas"
-            },
-            {
                 "loc": "/"
             },
             {
                 "loc": "/kapcsolat"
             },
             {
-                "loc": "/karbejentes"
-            },
-            {
-                "loc": "/partnerek"
-            },
-            {
-                "loc": "/rendezvenyszolgalat"
+                "loc": "/posts"
             },
             {
                 "loc": "/rolunk"
             },
             {
-                "loc": "/szemelyes-tanacsadas"
-            },
-            {
                 "loc": "/szolgaltatasok"
-            },
-            {
-                "loc": "/tanulobiztositas"
-            },
-            {
-                "loc": "/utasbiztositas"
             }
         ],
         "sourceType": "app"
@@ -2545,6 +2530,32 @@ const sources = {};
 const childSources = /*#__PURE__*/Object.freeze({
   __proto__: null,
   sources: sources
+});
+
+const sitemap = defineSitemapEventHandler(async (e) => {
+  try {
+    const response = await fetch(
+      "https://api.nszvtakaritas.hu/json-posts"
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+    const posts = await response.json();
+    return posts.map((post) => {
+      return {
+        loc: `/posts/${post.slug}`,
+        lastmod: post.modifiedAt ? new Date(post.modifiedAt).toISOString() : new Date(post.created_at).toISOString()
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching posts for sitemap:", error);
+    return [];
+  }
+});
+
+const sitemap$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: sitemap
 });
 
 const Vue3 = version[0] === "3";

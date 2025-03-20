@@ -14,16 +14,19 @@ const isMenuOpen = ref(false)
 <template>
   <header class="header">
     <div class="header__head d-flex flex-wrap">
-      <a class="header__head-item header__head-item--phone text-color-w d-flex">
+      <a
+        href="tel:+36703302184"
+        class="header__head-item header__head-item--phone text-color-w d-flex"
+      >
         <NuxtImg
           src="/img/header/mobile.svg"
           alt="Műszaki vizsgáztatás"
           class="header__head-item__img"
           height="100%"
         />
-        +36 (70) 363 3217
+        +36 (70) 330 2184
       </a>
-      <a class="header__head-item header__head-item--phone text-color-w d-flex">
+      <a href="tel:+3613496679" class="header__head-item header__head-item--phone text-color-w d-flex">
         <NuxtImg
           src="/img/header/phone.svg"
           alt="Műszaki vizsgáztatás"
@@ -32,7 +35,10 @@ const isMenuOpen = ref(false)
         />
         +36 (1) 349 6679
       </a>
-      <a class="header__head-item header__head-item--email text-color-w d-flex">
+      <a
+        href="mailto:szerviz@auto-vizsgaztatas.hu"
+        class="header__head-item header__head-item--email text-color-w d-flex"
+      >
         <NuxtImg
           src="/img/header/mail.svg"
           alt="Műszaki vizsgáztatás"
@@ -48,14 +54,14 @@ const isMenuOpen = ref(false)
           class="header__head-item__img"
           height="100%"
         />
-        H-Cs: 7:00 - 17:00 | P: 7:00 - 15:00
+        H-P: 7:00 - 16:00
       </a>
     </div>
     <div class="header-content d-flex">
       <div class="logo-box header-content__logo-box">
         <a href="/" class="header-content__logo-box__link">
           <NuxtImg
-            src="/img/header/logo.png"
+            src="/img/logo.png"
             alt="Műszaki vizsgáztatás"
             class="header-content__logo-box__link__img"
             height="100%"

@@ -1,4 +1,42 @@
-<script setup lang="ts"></script>
+<script setup>
+import { fetchPosts, truncateContent } from '~/utils/js/utils'
+
+const itemsPost = await fetchPosts()
+const latestPosts = itemsPost.value?.slice(-3) || []
+
+import { useNuxtApp } from '#app'
+const nuxtApp = useNuxtApp()
+
+const form = ref({
+  name: '',
+  email: '',
+  phonenumber: '',
+  message: '',
+})
+
+const isSent = ref(false)
+
+const sendEmail = async () => {
+  try {
+    await nuxtApp.$mail.send({
+      from: 'info@nszvtakaritas.hu',
+      to: 'nszvtakaritas@gmail.com',
+      subject: `Új üzenetet küldött - ${form.value.name}`,
+      html: `
+        <p><strong>Name:</strong> ${form.value.name}</p>
+        <p><strong>Email:</strong> ${form.value.email}</p>
+        <p><strong>Phone Number:</strong> ${form.value.phonenumber}</p>
+        <p><strong>Message:</strong></p>
+        <p>${form.value.message}</p>
+      `,
+    })
+    isSent.value = true
+  } catch (error) {
+    console.error('Error sending email:', error)
+    alert('Failed to send email.')
+  }
+}
+</script>
 <template>
   <section>
     <div class="hero-content position-relative">
@@ -10,10 +48,10 @@
       />
 
       <div class="hero-content__tBox position-absolute bg-color-w">
-        <h1 class="hero-content__tBox__h1 text-transform-uppercase f-700">
+        <h1 class="hero-content__tBox__h1 text-transform-uppercase f-700 text-color">
           Profi csapat, gördülékeny ügyintézés, garantált nyugalom.
         </h1>
-        <p class="hero-content__tBox__p">
+        <p class="hero-content__tBox__p text-color">
           Legyen szó előzetes átvizsgálásról, felkészítésről vagy ügyintézésről,
           mi leveszünk minden terhet a válladról. Te hozd az autót, mi hozzuk a
           megoldást!
@@ -125,24 +163,6 @@
           </p>
         </div>
       </div>
-      <div class="services-content__iTbox d-flex">
-        <NuxtImg
-          src="/img/body/services/elozetes.svg"
-          alt="Műszaki vizsgáztatás"
-          class="services-content__iTbox__img bg-color-w"
-          height="100%"
-        />
-
-        <div class="services-content__iTbox__iBox">
-          <h3 class="services-content__iTbox__iBox__h3 text-color-w f-600">
-            Biztosításkötés
-          </h3>
-          <p class="services-content__iTbox__iBox__p text-color-w m-0">
-            Segítünk a biztosításkötésben is, hogy mindent egy helyen
-            elintézhess, és időt spórolhass.
-          </p>
-        </div>
-      </div>
       <div class="services-content__linkBox">
         <NuxtLink
           to="/"
@@ -170,10 +190,10 @@
         />
       </div>
       <div class="about-content__tBox position-absolute bg-color-w">
-        <h4 class="about-content__tBox__h4 text-transform-uppercase m-0 f-700">
+        <h4 class="about-content__tBox__h4 text-transform-uppercase m-0 f-700 text-color">
           Rólunk
         </h4>
-        <p class="about-content__tBox__p">
+        <p class="about-content__tBox__p text-color">
           Több mint 66 éve segítjük az autósokat megbízható és professzionális
           szolgáltatásokkal. Szervizünk minden járműtípust fogad, legyen szó
           műszaki vizsgáztatásról, eredetiségvizsgálatról, kisebb javításokról
@@ -181,7 +201,7 @@
           abban, hogy gyorsan és a lehető legjobb megoldásokkal szolgáljuk ki
           ügyfeleinket, márkafüggetlen szemlélettel.
         </p>
-        <p class="about-content__tBox__p">
+        <p class="about-content__tBox__p text-color">
           Célunk, hogy az autójával kapcsolatos teendők nálunk egyszerűvé és
           gördülékennyé váljanak. Modern környezetben, kényelmes várakozási
           lehetőséggel, barátságos kiszolgálással és ügyfélközpontú
@@ -202,11 +222,28 @@
   <section>
     <div class="sales-content bg-color-w">
       <div class="sales-content__elem text-center position-relative bg-color-w">
-        <h5 class="sales-content__elem__h5 f-700">BLOG</h5>
+        <h5 class="sales-content__elem__h5 f-700 text-color">BLOG</h5>
         <div class="sales-content__elem__linkBox bg-color-w">
-          <p class="sales-content__elem__linkBox__p">
-            Feltöltés folyamatban...
-          </p>
+          <!-- Blog container -->
+          <div class="blog-container d-flex">
+            <div v-for="post in latestPosts" :key="post.slug" class="blog-card">
+              <NuxtLink
+                class="blog-container__Nuxtlink"
+                :to="`/posts/${post.slug}`"
+              >
+                <NuxtImg
+                  :src="`${$config.public.apiBaseUrl}/public/storage/${post.image}`"
+                  :alt="post.title"
+                  class="blog-card__image"
+                />
+                <h6 class="blog-card__title text-color">{{ post.title }}</h6>
+                <p
+                  class="blog-card__description text-color"
+                  v-html="truncateContent(post.body, 100)"
+                />
+              </NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
     </div>

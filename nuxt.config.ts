@@ -1,12 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      apiBaseUrl:
+        process.env.API_BASE_URL || 'https://api.muszakivizsgaztatas.hu',
+    },
+  },
   devtools: { enabled: true },
   css: ['~/assets/css/app.css'],
   ssr: true,
 
   app: {
     head: {
-      title: 'Autó vizsgáztatás',
+      title: 'Autó vizsgáztatás - Autó vizsgáztatás Budapesten',
       htmlAttrs: {
         lang: 'hu',
       },

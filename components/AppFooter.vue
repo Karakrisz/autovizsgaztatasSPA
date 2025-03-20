@@ -73,7 +73,7 @@ const sendEmail = async () => {
       </div>
       <div class="footer-content__form bg-color-w">
         <h6
-          class="footer-content__form__h6 text-transform-uppercase text-center f-700"
+          class="footer-content__form__h6 text-transform-uppercase text-center f-700 text-color"
         >
           KAPCSOLAT
         </h6>

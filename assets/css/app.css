@@ -333,7 +333,8 @@ ul {
   margin-right: 0.5em;
 }
 
-.header-content {
+.header-content,
+.subpage-content.blog {
   padding: 1em 5em;
 }
 
@@ -467,11 +468,54 @@ ul {
 /********************  Sales formating start **********************/
 
 .sales-content__elem__linkBox {
-  padding: 5em 0 1.3em 0;
+  padding: 3em 0 1.3em 0;
 }
 
 .sales-content__elem {
   margin-top: -8em;
+}
+
+.blog-container {
+  gap: 1.5em;
+}
+
+.blog-card__image {
+  width: 100%;
+}
+
+.blog-card__title {
+  margin-top: 1em;
+}
+
+.blog-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card__image {
+  width: 100%;
+  height: 37vh;
+  object-fit: cover;
+}
+
+.blog-card__title {
+  font-weight: 700;
+  margin: 0;
+  padding: 1rem;
+}
+
+.blog-card__description {
+  padding: 0 1rem 1rem;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /********************  Sales formating end **********************/
@@ -564,6 +608,89 @@ ul {
   padding-top: 6em !important;
   padding-right: 5em !important;
 }
+.subpage-content .services-content__iTbox__iBox__h3 {
+  margin: 0;
+  text-transform: uppercase;
+  background: #fb9d2f;
+  color: #202020;
+  width: max-content;
+  padding: 0.3em 1em;
+}
+
+.subpage-content.blog {
+  background: #202020;
+  color: #fff;
+  line-height: 2.2em;
+}
+
+.slug-blog__h2.about-content__tBox__h4 {
+  text-transform: uppercase;
+  margin: 1em 0 1.5em 0;
+}
+
+.slug-blog__img {
+  height: 100dvh;
+  width: 50%;
+  object-fit: cover;
+  box-shadow: 0 13px 40px -3px #fff;
+  margin-bottom: 2em;
+  border-top-right-radius: 5em;
+}
+
+.subpage-content a {
+  color: #fb9d2f;
+}
+
+hr {
+  margin: 2em 0;
+}
+
+.go-back-button {
+  animation: pulse 1s infinite;
+  align-items: center;
+  background-color: #fb9d2f;
+  border-radius: 5px;
+  color: #000 !important;
+  font-weight: 600;
+  display: inline-flex;
+  margin: 0.5em 0 1.5em 0;
+  overflow: hidden;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.go-back-button:hover {
+  background-color: #fb9d2f;
+  box-shadow: 0 2px 5px #0000001a;
+}
+
+.go-back-button__icon {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.go-back-button:hover .go-back-button__icon {
+  transform: translate(-5px);
+}
+
+.go-back-button__text {
+  position: relative;
+  z-index: 1;
+}
+
 /********************  Subpage formating formating end **********************/
 
 /********************  Media formating start **********************/
@@ -588,7 +715,8 @@ ul {
   .header__head-item {
     font-size: 1.2rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -603,7 +731,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.5rem;
   }
   .services-content__iTbox__img {
@@ -658,7 +787,8 @@ ul {
   .header__head-item {
     font-size: 1.2rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -673,7 +803,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.7rem;
   }
   .services-content__iTbox__img {
@@ -728,7 +859,8 @@ ul {
   .header__head-item {
     font-size: 1.1rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -743,7 +875,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.5rem;
   }
   .services-content__iTbox__img {
@@ -798,7 +931,8 @@ ul {
   .header__head-item {
     font-size: 1rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -816,7 +950,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.4rem;
   }
   .services-content__iTbox__img {
@@ -871,7 +1006,8 @@ ul {
   .header__head-item {
     font-size: 0.9rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -889,7 +1025,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.4rem;
   }
   .services-content__iTbox__img {
@@ -944,7 +1081,8 @@ ul {
   .header__head-item {
     font-size: 0.9rem;
   }
-  .header-content {
+  .header-content,
+  .subpage-content.blog {
     padding: 1em 7em;
   }
   .menu__item {
@@ -962,7 +1100,8 @@ ul {
   .services-content {
     padding: 13em 7em 5em 7em;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.3rem;
   }
   .services-content__iTbox__img {
@@ -1041,7 +1180,8 @@ ul {
   .footer-content__form__h6 {
     font-size: 1.3rem;
   }
-  .services-content__iTbox__iBox__h3 {
+  .services-content__iTbox__iBox__h3,
+  .blog-card__title {
     font-size: 1.2rem;
   }
   .services-content__iTbox__img {
@@ -1229,6 +1369,21 @@ ul {
   }
   .footer-brand-content__img {
     width: 20%;
+  }
+  .subpage-content .services-content__iTbox__iBox__h3 {
+    width: 100%;
+  }
+  .slug-blog__img {
+    width: 80%;
+    border-top-right-radius: 2em;
+    margin-bottom: 0.7em;
+  }
+  .subpage-content.blog {
+    padding: 2.5em 2.5em 1.3em 2.5em;
+  }
+  .subpage-content.blog .services-content__iTbox__iBox__h3 {
+    font-size: 1rem;
+    line-height: 1.5em;
   }
 }
 
@@ -1475,6 +1630,21 @@ ul {
   }
   .footer-brand-content__img {
     width: 13em;
+  }
+  .subpage-content .services-content__iTbox__iBox__h3 {
+    width: 100%;
+  }
+  .slug-blog__img {
+    width: 100%;
+    border-top-right-radius: 2em;
+    margin-bottom: 0.7em;
+  }
+  .subpage-content.blog {
+    padding: 2.5em 2.5em 1.3em 2.5em;
+  }
+  .subpage-content.blog .services-content__iTbox__iBox__h3 {
+    font-size: 1rem;
+    line-height: 1.5em;
   }
 }
 
