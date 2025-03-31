@@ -510,6 +510,7 @@ ul {
   font-weight: 700;
   margin: 0;
   padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .blog-card__description {
@@ -689,6 +690,10 @@ hr {
 .go-back-button__text {
   position: relative;
   z-index: 1;
+}
+
+.sales-content__elem--margin-0 {
+  margin: 0;
 }
 
 /********************  Subpage formating formating end **********************/
@@ -1645,6 +1650,9 @@ hr {
   .subpage-content.blog .services-content__iTbox__iBox__h3 {
     font-size: 1rem;
     line-height: 1.5em;
+  }
+  .blog-container {
+    flex-direction: column;
   }
 }
 
