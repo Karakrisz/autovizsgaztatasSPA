@@ -8,7 +8,7 @@ interface Post {
 export default defineSitemapEventHandler(async (e) => {
   try {
     const response = await fetch(
-      'https://api.nszvtakaritas.hu/json-posts'
+      'https://api.muszakivizsgaztatas.hu/json-posts'
     )
     if (!response.ok) {
       throw new Error('Failed to fetch posts')

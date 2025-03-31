@@ -337,7 +337,13 @@ const _inlineRuntimeConfig = {
           "Content-Type": "application/xslt+xml"
         }
       },
-      "/sitemap.xml": {},
+      "/sitemap.xml": {
+        "headers": {
+          "Content-Type": "text/xml; charset=UTF-8",
+          "Cache-Control": "public, max-age=600, must-revalidate",
+          "X-Sitemap-Prerendered": "2025-03-31T11:26:30.412Z"
+        }
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -2478,6 +2484,10 @@ const errorDev = /*#__PURE__*/Object.freeze({
 
 const sources$1 = [
     {
+        "sourceType": "user",
+        "fetch": "/api/sitemap"
+    },
+    {
         "context": {
             "name": "sitemap:urls",
             "description": "Set with the `sitemap.urls` config."
@@ -2535,7 +2545,7 @@ const childSources = /*#__PURE__*/Object.freeze({
 const sitemap = defineSitemapEventHandler(async (e) => {
   try {
     const response = await fetch(
-      "https://api.nszvtakaritas.hu/json-posts"
+      "https://api.muszakivizsgaztatas.hu/json-posts"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch posts");
