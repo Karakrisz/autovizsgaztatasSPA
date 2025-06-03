@@ -1,5 +1,6 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script setup>
+import { useNuxtApp } from '#app'
+const nuxtApp = useNuxtApp()
 
 const form = ref({
   name: '',
@@ -8,53 +9,22 @@ const form = ref({
 })
 
 const isSent = ref(false)
-const isLoading = ref(false)
-const errorMessage = ref<string | null>(null)
-
-const resetForm = () => {
-  form.value = {
-    name: '',
-    email: '',
-    phonenumber: '',
-  }
-}
 
 const sendEmail = async () => {
-  isLoading.value = true
-  errorMessage.value = null
-
   try {
-    const formData = new URLSearchParams()
-    formData.append('name', form.value.name)
-    formData.append('email', form.value.email)
-    formData.append('phonenumber', form.value.phonenumber)
-
-    const response = await fetch('https://formcarry.com/s/hqOyhWUJRxd', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-      body: formData.toString(),
+    await nuxtApp.$mail.send({
+      from: 'szerviz@auto-vizsgaztatas.hu',
+      subject: `Új üzenetet küldött - ${form.value.name}`,
+      html: `
+        <p><strong>Name:</strong> ${form.value.name}</p>
+        <p><strong>Email:</strong> ${form.value.email}</p>
+        <p><strong>Phone Number:</strong> ${form.value.phonenumber}</p>
+      `,
     })
-
-    if (response.ok) {
-      isSent.value = true
-      // alert('Form submitted successfully!');
-      resetForm()
-    } else {
-      const responseText = await response.text()
-      throw new Error(
-        `Failed to send form. Server responded with: ${responseText}`
-      )
-    }
+    isSent.value = true
   } catch (error) {
-    console.error('Error sending form:', error)
-    errorMessage.value =
-      error instanceof Error ? error.message : 'Unknown error occurred.'
-    alert(errorMessage.value)
-  } finally {
-    isLoading.value = false
+    console.error('Error sending email:', error)
+    alert('Failed to send email.')
   }
 }
 </script>
@@ -112,6 +82,14 @@ const sendEmail = async () => {
             v-if="!isSent"
             class="contact-form__link-box__text-box text-center d-flex"
           >
+            <p class="contact-form__link-box__text-box__p">
+              A küldés gombra kattintva elfogadja az
+              <NuxtLink
+                class="contact-form__link-box__text-box__p__link"
+                to="/adatvedelmi-tajekoztato"
+                >Adatkezelési Tájékoztatót</NuxtLink
+              >
+            </p>
             <button
               type="submit"
               aria-label="submit"

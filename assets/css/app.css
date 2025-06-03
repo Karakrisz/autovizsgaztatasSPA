@@ -571,6 +571,17 @@ ul {
 
 .contact-form__link-box__text-box {
   padding: 2em 0 7em 0;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.contact-form__link-box__text-box__p__link {
+  color: #15a91f;
+}
+
+.contact-form__link-box__text-box__p {
+  text-align: left;
 }
 
 .footer-brand-content {
