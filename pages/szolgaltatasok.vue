@@ -106,9 +106,9 @@ useHead({
       </div>
       <div class="services-content__linkBox">
         <NuxtLink
-          to="/ajanlatkeres"
+          to="/idopontfoglalas"
           class="services-content__linkBox__link page-next-link bg-color-w text-color d-flex"
-          >Ajánlatkérés
+          >Időpontfoglalás
           <NuxtImg
             src="/img/body/services/right.svg"
             alt="Műszaki vizsgáztatás"

@@ -77,9 +77,35 @@ export default defineNuxtConfig({
     trailingSlash: true,
   },
 
+  // sitemap: {
+  //   sources: ['/api/sitemap'],
+  //   // defaults: { priority: 0.7 },
+  // },
+
   sitemap: {
-    sources: ['/api/sitemap'],
-    // defaults: { priority: 0.7 },
+    sitemaps: {
+      pages: {
+        includeAppSources: true,
+        defaults: {
+          priority: 0.7,
+          changefreq: 'monthly',
+        },
+      },
+      technicalExam: {
+        sources: ['/api/technical_exam_sitemap'],
+        defaults: {
+          priority: 0.9,
+          changefreq: 'daily',
+        },
+      },
+      blog: {
+        sources: ['/api/sitemap'],
+        defaults: {
+          priority: 0.7, 
+          changefreq: 'daily', 
+        },
+      },
+    },
   },
 
   nitro: {

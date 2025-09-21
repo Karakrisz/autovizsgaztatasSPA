@@ -3,7 +3,7 @@ const links = [
   { name: 'Főoldal', path: '/' },
   { name: 'Rólunk', path: '/rolunk' },
   { name: 'Szolgáltatások', path: '/szolgaltatasok' },
-  { name: 'Ajánlatkérés', path: '/ajanlatkeres' },
+  { name: 'Időpontfoglalás', path: '/idopontfoglalas' },
   { name: 'Kapcsolat', path: '/kapcsolat' },
   { name: 'Facebook', path: '/', imagePath: '/img/header/facebook.svg' },
 ]

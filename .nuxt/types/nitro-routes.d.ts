@@ -6,11 +6,29 @@ declare module "nitropack/types" {
     '/api/sitemap': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/sitemap').default>>>>
     }
+    '/api/technical_exam_sitemap': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/technical_exam_sitemap').default>>>>
+    }
+    '/api/technical_exam_variations': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/technical_exam_variations').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
     }
     '/__site-config__/debug.json': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-site-config/dist/runtime/nitro/routes/__site-config__/debug').default>>>>
+    }
+    '/sitemap_index.xml': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/nitro/routes/sitemap_index.xml').default>>>>
+    }
+    '/pages-sitemap.xml': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/nitro/middleware/[sitemap]-sitemap.xml').default>>>>
+    }
+    '/technicalExam-sitemap.xml': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/nitro/middleware/[sitemap]-sitemap.xml').default>>>>
+    }
+    '/blog-sitemap.xml': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/nitro/middleware/[sitemap]-sitemap.xml').default>>>>
     }
     '/__sitemap__/debug.json': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/nitro/routes/__sitemap__/debug').default>>>>

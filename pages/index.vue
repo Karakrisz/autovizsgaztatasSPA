@@ -57,9 +57,9 @@ const sendEmail = async () => {
           megoldást!
         </p>
         <NuxtLink
-          to="/ajanlatkeres"
+          to="/idopontfoglalas"
           class="hero-content__tBox__link d-flex page-link text-color-w"
-          >Ajánlatkérés</NuxtLink
+          >Időpontfoglalás</NuxtLink
         >
       </div>
     </div>
@@ -222,29 +222,8 @@ const sendEmail = async () => {
   <section>
     <div class="sales-content bg-color-w">
       <div class="sales-content__elem text-center position-relative bg-color-w">
-        <h5 class="sales-content__elem__h5 f-700 text-color">BLOG</h5>
-        <div class="sales-content__elem__linkBox bg-color-w">
-          <!-- Blog container -->
-          <div class="blog-container d-flex">
-            <div v-for="post in latestPosts" :key="post.slug" class="blog-card">
-              <NuxtLink
-                class="blog-container__Nuxtlink"
-                :to="`/posts/${post.slug}`"
-              >
-                <NuxtImg
-                  :src="`${$config.public.apiBaseUrl}/public/storage/${post.image}`"
-                  :alt="post.title"
-                  class="blog-card__image"
-                />
-                <h6 class="blog-card__title text-color">{{ post.title }}</h6>
-                <p
-                  class="blog-card__description text-color"
-                  v-html="truncateContent(post.body, 100)"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
+        <h5 class="sales-content__elem__h5 f-700">NÉZD MEG KIK VAGYUNK</h5>
+        <iframe class="sales-content__elem__iframe" src="https://www.youtube.com/embed/KF3AMRUvyrY?si=pGtU56ugpgNfsMds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -257,7 +236,7 @@ const sendEmail = async () => {
           Zöld utat adunk autóJÁnak!
         </h6>
         <NuxtLink
-          to="/ajanlatkeres"
+          to="/idopontfoglalas"
           class="time-content__link page-next-link bg-color-w text-color"
           >Időpontot kérek</NuxtLink
         >

@@ -1,32 +1,5 @@
 <script setup>
-import { useNuxtApp } from '#app'
-const nuxtApp = useNuxtApp()
-
-const form = ref({
-  name: '',
-  email: '',
-  phonenumber: '',
-})
-
-const isSent = ref(false)
-
-const sendEmail = async () => {
-  try {
-    await nuxtApp.$mail.send({
-      from: 'szerviz@auto-vizsgaztatas.hu',
-      subject: `Új üzenetet küldött - ${form.value.name}`,
-      html: `
-        <p><strong>Name:</strong> ${form.value.name}</p>
-        <p><strong>Email:</strong> ${form.value.email}</p>
-        <p><strong>Phone Number:</strong> ${form.value.phonenumber}</p>
-      `,
-    })
-    isSent.value = true
-  } catch (error) {
-    console.error('Error sending email:', error)
-    alert('Failed to send email.')
-  }
-}
+// Egyszerűsített script, nincs szükség az email küldésre
 </script>
 
 <template>
@@ -45,80 +18,42 @@ const sendEmail = async () => {
         <h6
           class="footer-content__form__h6 text-transform-uppercase text-center f-700 text-color"
         >
-          KAPCSOLAT
+          IDŐPONTFOGLALÁS
         </h6>
-        <form @submit.prevent="sendEmail" class="footer-content__form__elem">
-          <div class="footer-content__form__elem__div">
-            <input
-              type="text"
-              placeholder="NÉV"
-              id="name"
-              v-model="form.name"
-              required
-              class="footer-content__form__elem__div__input f-300"
-            />
+        
+        <div class="footer-cta-content">
+          <h3 class="footer-cta-title">Kérjen ingyenes ajánlatot!</h3>
+          <p class="footer-cta-text">
+            Precíz munka, gyári minőségű műszaki vizsgáztatás korrekt áron. 
+            Gyors és megbízható szolgáltatás!
+          </p>
+          
+          <div class="footer-cta-benefits">
+            <div class="benefit-item">✓ Ingyenes árajánlat</div>
+            <div class="benefit-item">✓ Gyors szolgáltatás</div>
+            <div class="benefit-item">✓ Megbízható partnereink</div>
           </div>
-          <div class="footer-content__form__elem__div">
-            <input
-              type="email"
-              placeholder="E-MAIL CÍM"
-              id="email"
-              v-model="form.email"
-              required
-              class="footer-content__form__elem__div__input f-300"
-            />
-          </div>
-          <div class="footer-content__form__elem__div">
-            <input
-              type="tel"
-              id="phonenumber"
-              v-model="form.phonenumber"
-              required
-              placeholder="TELEFONSZÁM"
-              class="footer-content__form__elem__div__input f-300"
-            />
-          </div>
-          <div
-            v-if="!isSent"
-            class="contact-form__link-box__text-box text-center d-flex"
-          >
-            <p class="contact-form__link-box__text-box__p">
-              A küldés gombra kattintva elfogadja az
-              <NuxtLink
-                class="contact-form__link-box__text-box__p__link"
-                to="/adatvedelmi-tajekoztato"
-                >Adatkezelési Tájékoztatót</NuxtLink
-              >
-            </p>
-            <button
-              type="submit"
-              aria-label="submit"
+          
+          <div class="footer-cta-button-wrapper">
+            <NuxtLink
+              to="/idopontfoglalas"
               class="contact-form__link-box__text-box__btn d-flex page-link text-color-w cursor"
             >
-              Küldés
+              IDŐPONTFOGLALÁS
               <NuxtImg
                 src="/img/footer/right.svg"
                 alt="Műszaki vizsgáztatás"
                 class="contact-form__link-box__text-box__btn__img position-relative"
                 height="100%"
               />
-            </button>
-            <!-- <p class="mt-4 text-xs text-right text-gray-400">
-              A JELENTKEZEM GOMBRA KATTINTVA ELFOGADOM AZ ADATVÉDELMI
-              NYILATKOZATOT.
-            </p> -->
+            </NuxtLink>
           </div>
-          <div v-if="isSent" class="confirmation-message bg-color-w">
-            <p class="confirmation-message__p text-white f-600">
-              Köszönjük az üzenetét, hamarosan felvesszük Önnel a kapcsolatot.
-            </p>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
     <div class="footer-brand-content text-center">
       <NuxtImg
-        src="/img/footer/brand.svg"
+        src="/img/logo.png"
         alt="Műszaki vizsgáztatás"
         class="footer-brand-content__img"
         height="100%"
