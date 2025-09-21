@@ -111,8 +111,8 @@ useHead({
         image:
           foundData.value?.image_url ||
           'https://www.auto-vizsgaztatas.hu/img/default.jpg',
-        telephone: '+36-XX-XXX-XXXX',
-        openingHours: ['Mo-Fr 08:00-18:00', 'Sa 08:00-14:00'],
+        telephone: '+36703302184',
+        openingHours: ['H-P 07:00-16:00'],
       }),
     },
   ],
